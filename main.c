@@ -15,6 +15,9 @@ struct Cache {
 
 typedef struct Cache *Node;
 Node cacheTable[CACHE_TABLE_SIZE];
+
+LinkedListNode listNode;
+
 void * clear(void * run) {
     int myrun = *((int *) run);
     for (int i = 0; i < CACHE_TABLE_SIZE; i++) {
@@ -26,11 +29,12 @@ void * clear(void * run) {
 void createVariable(char userName, char userData){
     for (int i = 0; i <CACHE_TABLE_SIZE; ++i) {
         if (isblank((cacheTable[i]->name)) && isblank((cacheTable[i]->data))){
-            cacheTable[i]->name = userName;
+            cacheTable[i]->name = userName
             cacheTable[i]->data = userData;
             break;
         }
         else if (cacheTable[i]->r = 0){
+            listNode.addNode(cacheTable[i]->name, cacheTable[i]->data);
             cacheTable[i]->name = userName;
             cacheTable[i]->data = userData;
             break;
@@ -45,6 +49,7 @@ void readVariable(char userName){
             printf(cacheTable[i]->name+ ": "+cacheTable[i]->data);
             cacheTable[i]->r = 1;
         }
+        else if(listNode.searchListString())
     }
 }
 void updateVariable(char userName, char userData){
@@ -65,7 +70,6 @@ void deleteVariable(char userName){
     }
 }
 
-
 int main() {
     for(int i = 0; i < CACHE_TABLE_SIZE; i++){
         Node cache;
@@ -78,9 +82,7 @@ int main() {
 
         cacheTable[i] = cache;
     }
-    ///Read variable method
-    ///Delete variable method
-    ///Update variable method
+
     ///Create a hashmap
 
 }
