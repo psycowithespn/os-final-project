@@ -124,6 +124,33 @@ Memory\fast:
 	$(MAKE) -f CMakeFiles\Memory.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Memory.dir\build
 .PHONY : Memory\fast
 
+CRUD.obj: CRUD.c.obj
+
+.PHONY : CRUD.obj
+
+# target to build an object file
+CRUD.c.obj:
+	$(MAKE) -f CMakeFiles\Memory.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Memory.dir\CRUD.c.obj
+.PHONY : CRUD.c.obj
+
+CRUD.i: CRUD.c.i
+
+.PHONY : CRUD.i
+
+# target to preprocess a source file
+CRUD.c.i:
+	$(MAKE) -f CMakeFiles\Memory.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Memory.dir\CRUD.c.i
+.PHONY : CRUD.c.i
+
+CRUD.s: CRUD.c.s
+
+.PHONY : CRUD.s
+
+# target to generate assembly for a file
+CRUD.c.s:
+	$(MAKE) -f CMakeFiles\Memory.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Memory.dir\CRUD.c.s
+.PHONY : CRUD.c.s
+
 main.obj: main.c.obj
 
 .PHONY : main.obj
@@ -160,6 +187,9 @@ help:
 	@echo ... Memory
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... CRUD.obj
+	@echo ... CRUD.i
+	@echo ... CRUD.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

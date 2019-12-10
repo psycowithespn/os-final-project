@@ -4,25 +4,27 @@
 // Linked List Node - Used to store the commands
 struct node {
     char * data;
+    char name;
     struct node * next;
 };
 
 typedef struct node *LinkedListNode;
 
 // Create a new Linked List with Default Values
-LinkedListNode newLinkedList(void * data) {
+LinkedListNode newLinkedList(void * data, char name) {
     LinkedListNode node;
     node = (LinkedListNode)malloc(sizeof(LinkedListNode));
 
     node->data = data;
+    node->name = name;
     node->next = NULL;
 
     return node;
 }
 
 // Adds a new node with data
-void addNode(LinkedListNode head, char * data) {
-    LinkedListNode nextNode = newLinkedList(data);
+void addNode(LinkedListNode head, char * data, char name) {
+    LinkedListNode nextNode = newLinkedList(data, name);
     LinkedListNode temp = head;
 
     while (temp->next != NULL) {

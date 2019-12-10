@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Atari/Desktop/os-final-project/CRUD.c">
+			<Option target="Memory"/>
+		</Unit>
 		<Unit filename="C:/Users/Atari/Desktop/os-final-project/main.c">
 			<Option target="Memory"/>
 		</Unit>

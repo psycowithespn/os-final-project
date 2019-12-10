@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <pthread.h>
 #include <semaphore.h>
+#include "CRUD.c"
 
 #define RESOURCE_SERVER_PORT 1080
 #define BUF_SIZE 256

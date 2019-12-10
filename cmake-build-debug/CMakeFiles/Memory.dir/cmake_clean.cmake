@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Memory.dir/CRUD.c.obj"
   "CMakeFiles/Memory.dir/main.c.obj"
   "Memory.exe"
   "Memory.exe.manifest"

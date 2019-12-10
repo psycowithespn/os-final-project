@@ -26,24 +26,24 @@ The C compiler identification is MSVC, found in "C:/Users/Atari/Desktop/os-final
 Determining if the C compiler works passed with the following output:
 Change Dir: C:/Users/Atari/Desktop/os-final-project/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):nmake /nologo cmTC_d4693\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_d4693.dir\build.make /nologo -L                  CMakeFiles\cmTC_d4693.dir\build
-Building C object CMakeFiles/cmTC_d4693.dir/testCCompiler.c.obj
-	C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx86\x86\cl.exe @C:\Users\Atari\AppData\Local\Temp\nmE985.tmp
+Run Build Command(s):nmake /nologo cmTC_1bf1c\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_1bf1c.dir\build.make /nologo -L                  CMakeFiles\cmTC_1bf1c.dir\build
+Building C object CMakeFiles/cmTC_1bf1c.dir/testCCompiler.c.obj
+	C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx86\x86\cl.exe @C:\Users\Atari\AppData\Local\Temp\nm7CD5.tmp
 testCCompiler.c
-Linking C executable cmTC_d4693.exe
-	"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_d4693.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_d4693.dir\objects1.rsp @C:\Users\Atari\AppData\Local\Temp\nmEB0D.tmp
+Linking C executable cmTC_1bf1c.exe
+	"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_1bf1c.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_1bf1c.dir\objects1.rsp @C:\Users\Atari\AppData\Local\Temp\nm8264.tmp
 
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: C:/Users/Atari/Desktop/os-final-project/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):nmake /nologo cmTC_2a952\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_2a952.dir\build.make /nologo -L                  CMakeFiles\cmTC_2a952.dir\build
-Building C object CMakeFiles/cmTC_2a952.dir/CMakeCCompilerABI.c.obj
-	C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx86\x86\cl.exe @C:\Users\Atari\AppData\Local\Temp\nmEE96.tmp
+Run Build Command(s):nmake /nologo cmTC_e8767\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_e8767.dir\build.make /nologo -L                  CMakeFiles\cmTC_e8767.dir\build
+Building C object CMakeFiles/cmTC_e8767.dir/CMakeCCompilerABI.c.obj
+	C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx86\x86\cl.exe @C:\Users\Atari\AppData\Local\Temp\nm861C.tmp
 CMakeCCompilerABI.c
-Linking C executable cmTC_2a952.exe
-	"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_2a952.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_2a952.dir\objects1.rsp @C:\Users\Atari\AppData\Local\Temp\nmEF14.tmp
+Linking C executable cmTC_e8767.exe
+	"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_e8767.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_e8767.dir\objects1.rsp @C:\Users\Atari\AppData\Local\Temp\nm868A.tmp
 
 
 

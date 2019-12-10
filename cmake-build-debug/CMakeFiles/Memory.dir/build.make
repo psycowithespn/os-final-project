@@ -77,17 +77,38 @@ CMakeFiles\Memory.dir\main.c.s: cmake_force
  /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoNUL /FAs /FaCMakeFiles\Memory.dir\main.c.s /c C:\Users\Atari\Desktop\os-final-project\main.c
 <<
 
+CMakeFiles\Memory.dir\CRUD.c.obj: CMakeFiles\Memory.dir\flags.make
+CMakeFiles\Memory.dir\CRUD.c.obj: ..\CRUD.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Atari\Desktop\os-final-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Memory.dir/CRUD.c.obj"
+	C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx86\x86\cl.exe @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoCMakeFiles\Memory.dir\CRUD.c.obj /FdCMakeFiles\Memory.dir\ /FS -c C:\Users\Atari\Desktop\os-final-project\CRUD.c
+<<
+
+CMakeFiles\Memory.dir\CRUD.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Memory.dir/CRUD.c.i"
+	C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx86\x86\cl.exe > CMakeFiles\Memory.dir\CRUD.c.i @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Atari\Desktop\os-final-project\CRUD.c
+<<
+
+CMakeFiles\Memory.dir\CRUD.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Memory.dir/CRUD.c.s"
+	C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx86\x86\cl.exe @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoNUL /FAs /FaCMakeFiles\Memory.dir\CRUD.c.s /c C:\Users\Atari\Desktop\os-final-project\CRUD.c
+<<
+
 # Object files for target Memory
 Memory_OBJECTS = \
-"CMakeFiles\Memory.dir\main.c.obj"
+"CMakeFiles\Memory.dir\main.c.obj" \
+"CMakeFiles\Memory.dir\CRUD.c.obj"
 
 # External object files for target Memory
 Memory_EXTERNAL_OBJECTS =
 
 Memory.exe: CMakeFiles\Memory.dir\main.c.obj
+Memory.exe: CMakeFiles\Memory.dir\CRUD.c.obj
 Memory.exe: CMakeFiles\Memory.dir\build.make
 Memory.exe: CMakeFiles\Memory.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Atari\Desktop\os-final-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Memory.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Atari\Desktop\os-final-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Memory.exe"
 	"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\Memory.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\Memory.dir\objects1.rsp @<<
  /out:Memory.exe /implib:Memory.lib /pdb:C:\Users\Atari\Desktop\os-final-project\cmake-build-debug\Memory.pdb /version:0.0  /machine:X86 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
