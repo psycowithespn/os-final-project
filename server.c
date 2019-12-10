@@ -9,8 +9,6 @@
 #include <pthread.h>
 #include <semaphore.h>
 
-#include "LinkedList.c"
-
 #define RESOURCE_SERVER_PORT 1080
 #define BUF_SIZE 256
 
@@ -28,24 +26,15 @@ void closeConnection() {
 }
 
 // String Parser
-LinkedListNode parse(char * toParse) {
+char ** parse(char * toParse) {
     char * token;
     int i = 0;
-    LinkedListNode toReturn = newLinkedList(NULL);
+    char * toReturn[3];
 
-    printf("Start parse\n");
-
-    while ((token = strsep(&toParse, " ") != NULL)) {
-        if (i == 0) {
-            toReturn->data = token;
-            i++;
-        }
-
-        addNode(toReturn, token);
+    while ((token = strsep(&toParse, " ")) != NULL) {
+        toReturn[i] = token;
+        i++;
     }
-
-    printf("%s\n", toReturn->data);
-
     return toReturn;
 }
 
@@ -60,45 +49,31 @@ void * processClientRequest(void * request) {
     while ( (bytesReadFromClient = read(connectionToClient, receiveLine, BUF_SIZE)) > 0) {
         // Put a NULL string terminator at end
         receiveLine[bytesReadFromClient] = 0;
-        
+
         // Show what client sent
         printf("Received: %s\n", receiveLine);
 
         // Default success value to 0 (false) in case invalid command is sent and switch statement fails
         int success = 0;
-        LinkedListNode parsedString = parse(receiveLine);
-        char * command = getNode(parsedString, 0)->data;
-
-        printf("%s\n", command);
+        char * parsedString[3] = parse(receiveLine);
+        char * command = parsedString[0];
 
         if (strcmp(command, "create") == 0) {
-            // success = memCreate(parsedString[1], parsedString[2]);
-            printf("This worked\n");
+            createVariable(parsedString[1], parsedString[2]);
+        
         } else if (strcmp(command, "read") == 0) {
-            // success = memRead(parsedString[1]);
-            printf("This worked\n");
-        } else if (strcmp(command, "update") == 0) {
-            // success = memUpdate(parsedString[1], parsedString[2]);
-            printf("This worked\n");
-        } else if (strcmp(command, "delete") == 0) {
-            // success = memDelete(parsedString[1]);
-            printf("This worked\n");
-        }
-
-        printf("%d\n", success);
-
-        // Check if there was a failure
-        if (success == 0) {
-            snprintf(sendLine, sizeof(sendLine), "failure");
+            char * value = readVariable(parsedString[1]);
+            
+            // Send value to client
+            snprintf(sendLine, sizeof(sendLine), value);
             write(connectionToClient, sendLine, strlen(sendLine));
+        
+        } else if (strcmp(command, "update") == 0) {
+            updateVariable(parsedString[1], parsedString[2]);
 
-            bzero(&receiveLine, sizeof(receiveLine));
-            close(connectionToClient);
+        } else if (strcmp(command, "delete") == 0) {
+            deleteVariable(parsedString);
         }
-
-        // Send Success to client
-        snprintf(sendLine, sizeof(sendLine), "success");
-        write(connectionToClient, sendLine, strlen(sendLine));
         
         // Zero out the receive line so we do not get artifacts from before
         bzero(&receiveLine, sizeof(receiveLine));
