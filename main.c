@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "LinkedList.c"
 #include "server.c"
 #define CACHE_DATA_SIZE 256
 #define CACHE_TABLE_SIZE 8
@@ -14,10 +13,9 @@ int main() {
         Node cache;
         cache = (Node)malloc(sizeof(Node));
 
-        cache->lastUsed = 0;
         cache->name = NULL;
         cache->data = NULL;
-        cache->r = 0;
+        cache->referenced = 0;
 
         cacheTable[i] = cache;
     }
