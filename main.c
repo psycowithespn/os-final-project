@@ -11,42 +11,35 @@ struct node {
     struct node * next;
 };
 
-typedef struct node *LinkedListNode;
+typedef struct Cache *Node;
+Node cacheTable[CACHE_TABLE_SIZE];
 
-// Create a new Linked List with Default Values
-LinkedListNode newLinkedList(void * data) {
-    LinkedListNode node;
-    node = (LinkedListNode)malloc(sizeof(LinkedListNode));
+LinkedListNode listNode;
 
-    node->data = data;
-    node->next = NULL;
-
-    return node;
-}
-
-// Adds a new node with data
-void addNode(LinkedListNode head, void * data) {
-    LinkedListNode nextNode = newLinkedList(data);
-    LinkedListNode temp = head;
-
-    while (temp->next != NULL) {
-        temp = temp->next;
+void * clear(void * run) {
+    int myrun = *((int *) run);
+    for (int i = 0; i < CACHE_TABLE_SIZE; i++) {
+        if (cacheTable[i]->r == 1) {
+            cacheTable[i]->r = 0;
+        }
     }
     
     temp->next = nextNode;
 }
-
-// Compares strings in the linked list
-int searchListString(LinkedListNode head, char * toSearch) {
-    LinkedListNode node = head;
-
-    while (strcmp(node->data, toSearch) != 0) {
-        node = node->next;
-
-        if (node == NULL) {
-            return 0;
+void createVariable(char userName, char userData){
+    for (int i = 0; i <CACHE_TABLE_SIZE; ++i) {
+        if (isblank((cacheTable[i]->name)) && isblank((cacheTable[i]->data))){
+            cacheTable[i]->name = userName
+            cacheTable[i]->data = userData;
+            break;
         }
-    }
+        else if (cacheTable[i]->r = 0){
+            listNode.addNode(cacheTable[i]->name, cacheTable[i]->data);
+            cacheTable[i]->name = userName;
+            cacheTable[i]->data = userData;
+            break;
+        }
+        else {}
 
     return 1;
 }
@@ -61,6 +54,7 @@ int searchList(LinkedListNode head, void * toSearch) {
         if (node == NULL) {
             return 0;
         }
+        else if(listNode.searchListString())
     }
 
     return 1;
@@ -118,15 +112,6 @@ LinkedListNode removeNodeString(LinkedListNode head, char * data) {
     return head;
 }
 
-struct Cache {
-    char *data;
-    int lastUsed;
-};
-
-typedef struct Cache *Node;
-Node cacheTable[CACHE_TABLE_SIZE];
-//End of LinkedList
-
 int main() {
 
     LinkedListNode cacheList(data);
@@ -149,6 +134,8 @@ int main() {
         }
         
     }
+
+    ///Create a hashmap
 
     startServer();
 }
