@@ -1,4 +1,3 @@
-#include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
 #include "LinkedList.c"
@@ -7,8 +6,8 @@
 #include "ctype.h"
 
 struct Cache {
-    char name;
-    char data;
+    char * name;
+    char * data;
     int r;
     int lastUsed;
 };
@@ -16,9 +15,7 @@ struct Cache {
 typedef struct Cache *Node;
 Node cacheTable[CACHE_TABLE_SIZE];
 
-LinkedListNode listNode;
-
-void * clear(void * run) {
+void clear(void * run) {
     int myrun = *((int *) run);
     for (int i = 0; i < CACHE_TABLE_SIZE; i++) {
         if (cacheTable[i]->r == 1) {
@@ -26,15 +23,15 @@ void * clear(void * run) {
         }
     }
 }
-void createVariable(char userName, char userData){
+
+void createVariable(char * userName, char * userData){
     for (int i = 0; i <CACHE_TABLE_SIZE; ++i) {
-        if (isblank((cacheTable[i]->name)) && isblank((cacheTable[i]->data))){
-            cacheTable[i]->name = userName
+        if (isblank(cacheTable[i]->name) && isblank(cacheTable[i]->data)) {
+            cacheTable[i]->name = userName;
             cacheTable[i]->data = userData;
             break;
         }
-        else if (cacheTable[i]->r = 0){
-            listNode.addNode(cacheTable[i]->name, cacheTable[i]->data);
+        else if (cacheTable[i]->r == 0){
             cacheTable[i]->name = userName;
             cacheTable[i]->data = userData;
             break;
@@ -43,26 +40,28 @@ void createVariable(char userName, char userData){
 
     }
 }
-void readVariable(char userName){
+
+void readVariable(char * userName){
     for (int i = 0; i <CACHE_TABLE_SIZE; ++i) {
-        if(cacheTable[i]->name = userName){
-            printf(cacheTable[i]->name+ ": "+cacheTable[i]->data);
+        if (strcmp(cacheTable[i]->name, userName) == 0) {
+            printf("%s: %s", cacheTable[i]->name, cacheTable[i]->data);
             cacheTable[i]->r = 1;
         }
-        else if(listNode.searchListString())
     }
 }
-void updateVariable(char userName, char userData){
+
+void updateVariable(char * userName, char * userData){
     for (int i = 0; i <CACHE_TABLE_SIZE; ++i) {
-        if (cacheTable[i]->name = userName){
+        if (strcmp(cacheTable[i]->name, userName) == 0) {
             cacheTable[i]->data = userData;
             cacheTable[i]->r = 1;
         }
     }
 }
-void deleteVariable(char userName){
+
+void deleteVariable(char * userName){
     for (int i = 0; i <CACHE_TABLE_SIZE; ++i) {
-        if (cacheTable[i]->name=userName){
+        if (strcmp(cacheTable[i]->name, userName) == 0){
             cacheTable[i]->name = NULL;
             cacheTable[i]->data = NULL;
         }
@@ -84,5 +83,5 @@ int main() {
     }
 
     ///Create a hashmap
-
+    return EXIT_SUCCESS;
 }
