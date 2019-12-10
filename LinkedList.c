@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "main.c"
 
 // Linked List Node - Used to store the commands
 struct node {
@@ -131,4 +132,65 @@ LinkedListNode removeNodeString(LinkedListNode head, char * data) {
     previous->next = node->next;
     free(node);
     return head;
+}
+
+void main(){
+
+    LinkedListNode centralList(data);
+
+}
+
+//Adds value to a new node if cacheTable is full
+void addToList(){
+
+    addnode initialNode(centralList, userName);
+
+}
+
+//Search for value in list
+void searchLinkedList(){
+
+    if (searchListString(centralList, userName) == true){
+
+        return userName;
+    } 
+
+    else{
+
+        printf("Does not exist in LinkedList");
+        
+    }
+
+}
+
+//Updates list value
+void updateList(){
+
+        if (searchListString(centralList, userName) == true){
+
+        return userName;
+    } 
+
+    else{
+
+        printf("Does not exist in LinkedList");
+        
+    }
+
+}
+
+//Removes value from list
+void removeFromList{
+
+    if (searchListString(centralList, userName) == true){
+
+        removeNodeString(userName);
+    }
+
+    else{
+
+        printf("Does not exist in LinkedList");
+        
+    }
+
 }
