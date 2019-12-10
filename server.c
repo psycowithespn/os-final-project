@@ -59,6 +59,7 @@ void * processClientRequest(void * request) {
         char * parsedString[3] = parse(receiveLine);
         char * command = parsedString[0];
 
+        // Run through and determine which command to run
         if (strcmp(command, "create") == 0) {
             createVariable(parsedString[1], parsedString[2]);
         
@@ -103,9 +104,10 @@ int startServer() {
     }
     
     // Before we listen, register for Ctrl+C being sent so we can close our connection
-    struct sigaction sigIntHandler;
-    sigIntHandler.sa_handler = closeConnection;
-    sigIntHandler.sa_flags = 0;
+    struct sigaction sigIntHandler = {
+        .sa_handler = closeConnection,
+        .sa_flags = 0
+    };
     
     sigaction(SIGINT, &sigIntHandler, NULL);
     

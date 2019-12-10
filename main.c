@@ -4,7 +4,6 @@
 #include "server.c"
 #define CACHE_DATA_SIZE 256
 #define CACHE_TABLE_SIZE 8
-#include "ctype.h"
 
 typedef struct Cache *Node;
 Node cacheTable[CACHE_TABLE_SIZE];
