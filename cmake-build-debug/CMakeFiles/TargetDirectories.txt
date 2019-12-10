@@ -1,0 +1,3 @@
+C:/Users/Atari/Desktop/os-final-project/cmake-build-debug/CMakeFiles/Memory.dir
+C:/Users/Atari/Desktop/os-final-project/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Atari/Desktop/os-final-project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
