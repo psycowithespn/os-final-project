@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdbool.h>
+#include <string.h>
 
 // Linked List Node - Used to store the commands
 struct node {
@@ -21,7 +21,7 @@ LinkedListNode newLinkedList(void * data) {
 }
 
 // Adds a new node with data
-void addNode(LinkedListNode head, void * data) {
+void addNode(LinkedListNode head, char * data) {
     LinkedListNode nextNode = newLinkedList(data);
     LinkedListNode temp = head;
 
@@ -32,34 +32,51 @@ void addNode(LinkedListNode head, void * data) {
     temp->next = nextNode;
 }
 
+// Returns node based off of index
+LinkedListNode getNode(LinkedListNode head, int index) {
+    LinkedListNode node = head;
+    printf("%s\n", node->data);
+
+    for (int i = 0; i < index; i++) {
+        printf("%s\n", node->data);
+        node = node->next;
+    }
+
+    return node;
+}
+
 // Compares strings in the linked list
 int searchListString(LinkedListNode head, char * toSearch) {
     LinkedListNode node = head;
+    int index = 0;
 
     while (strcmp(node->data, toSearch) != 0) {
         node = node->next;
+        index++;
 
         if (node == NULL) {
-            return 0;
+            return -1;
         }
     }
 
-    return 1;
+    return index;
 }
 
 // Search for things that aren't strings
 int searchList(LinkedListNode head, void * toSearch) {
     LinkedListNode node = head;
+    int index = 0;
 
     while (node->data != toSearch) {
         node = node->next;
+        index++;
 
         if (node == NULL) {
-            return 0;
+            return -1;
         }
     }
 
-    return 1;
+    return index;
 }
 
 // Removes a node and sets the 'next' value of the previous node to the 'next' value of the deleted node
