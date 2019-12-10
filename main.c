@@ -1,7 +1,7 @@
 // #include <iostream>  
 #include <stdlib.h>
 #include <stdio.h>
-#include "LinkedList.c"
+#include "server.c"
 #define CACHE_DATA_SIZE 256
 #define CACHE_TABLE_SIZE 8
 
@@ -150,5 +150,6 @@ int main() {
         
     }
 
+    startServer();
 }
 
