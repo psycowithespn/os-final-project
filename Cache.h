@@ -11,7 +11,6 @@
 struct Cache {
     char * name;
     char * data;
-    int referenced;
 };
 typedef struct Cache *Node;
 

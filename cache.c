@@ -12,11 +12,7 @@ int hash(char * primaryKey) {
 // Reads from the cache table, changes referenced to 1
 Node readCache(Node data) {
     int index = hash(data->data);
-
-    pthread_mutex_lock(&lock);
-    cacheTable[index]->referenced = 1;
-    pthread_mutex_unlock(&lock);
-    return cacheTable[index];;
+    return cacheTable[index];
 }
 
 void addToCache(Node data){

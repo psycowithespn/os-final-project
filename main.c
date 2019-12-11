@@ -7,7 +7,6 @@ int main() {
 
         cache->name = NULL;
         cache->data = NULL;
-        cache->referenced = 0;
 
         cacheTable[i] = cache;
     }
