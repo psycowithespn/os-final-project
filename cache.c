@@ -1,17 +1,4 @@
-#include <stdlib.h>
-#include <ctype.h>
-
-#define CACHE_DATA_SIZE 256
-#define CACHE_TABLE_SIZE 8
-
-struct Cache {
-    char * name;
-    char * data;
-    int referenced;
-};
-typedef struct Cache *Node;
-
-Node cacheTable[CACHE_TABLE_SIZE];
+#include "Cache.h"
 
 int hash(char * primaryKey) {
     int sum = 0;
@@ -26,20 +13,25 @@ int hash(char * primaryKey) {
 Node readCache(Node data) {
     int index = hash(data->data);
 
+    pthread_mutex_lock(&lock);
     cacheTable[index]->referenced = 1;
-    return cacheTable[index]->data;;
+    pthread_mutex_unlock(&lock);
+    return cacheTable[index];;
 }
 
 void addToCache(Node data){
     int index = hash(data->name);
+
+    pthread_mutex_lock(&lock);
     cacheTable[index] = data;
+    pthread_mutex_unlock(&lock);
 }
 
 // Hashes and checks if thing is in cache
 int inCache(Node data){
     int index = hash(data->name);
 
-    if (strcmp(data->name, cacheTable[index]) == 0) {
+    if (strcmp(data->name, cacheTable[index]->name) == 0) {
         return 1;
     }
 

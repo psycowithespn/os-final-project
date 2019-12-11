@@ -1,7 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "LinkedList.c"
-#include "cache.c"
+#include "CRUD.h"
 
 void createVariable(char * name, char * data) {
     if (inCache(name) == 1) {

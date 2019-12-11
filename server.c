@@ -1,25 +1,5 @@
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <signal.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <pthread.h>
-#include <semaphore.h>
-#include "CRUD.c"
+#include "Server.h"
 
-#define RESOURCE_SERVER_PORT 1080
-#define BUF_SIZE 256
-
-// We make this a global so that we can refer to it in our signal handler
-int serverSocket;
-
-/*
- We need to make sure we close the connection on signal received, otherwise we have to wait
- for server to timeout.
- */
 void closeConnection() {
     printf("\nClosing Connection with file descriptor: %d \n", serverSocket);
     close(serverSocket);
@@ -56,7 +36,7 @@ void * processClientRequest(void * request) {
 
         // Default success value to 0 (false) in case invalid command is sent and switch statement fails
         int success = 0;
-        char * parsedString[3] = parse(receiveLine);
+        char ** parsedString = parse(receiveLine);
         char * command = parsedString[0];
 
         // Run through and determine which command to run
@@ -74,13 +54,15 @@ void * processClientRequest(void * request) {
             updateVariable(parsedString[1], parsedString[2]);
 
         } else if (strcmp(command, "delete") == 0) {
-            deleteVariable(parsedString);
+            deleteVariable(parsedString[1]);
         }
         
         // Zero out the receive line so we do not get artifacts from before
         bzero(&receiveLine, sizeof(receiveLine));
         close(connectionToClient);
     }
+
+    return NULL;
 }
 
 int startServer() {
@@ -127,4 +109,6 @@ int startServer() {
         pthread_create(&someThread, NULL, processClientRequest, (void *)&connectionToClient);
         
     }
+
+    return 0;
 }
