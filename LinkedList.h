@@ -20,5 +20,6 @@ int searchList(LinkedListNode head, char * toSearch);
 LinkedListNode removeNode(LinkedListNode head, char * data);
 LinkedListNode searchLinkedList(char * name);
 void updateLinkedList(char * name, char * data);
+void removeFromLinkedList(char * name);
 
 #endif

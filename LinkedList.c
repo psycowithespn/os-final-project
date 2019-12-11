@@ -81,25 +81,34 @@ LinkedListNode removeNode(LinkedListNode head, char * data) {
 //Search for value in list
 LinkedListNode searchLinkedList(char * name){
     int index;
+    pthread_mutex_lock(&lock);
+
     if ((index = searchList(centralList, name)) != -1){
         return getNode(centralList, index);
     } else{
         printf("Does not exist in LinkedList");
     }
 
+    pthread_mutex_unlock(&lock);
 }
 
 //Updates list value
 void updateLinkedList(char * name, char * data){
     int index;
+    pthread_mutex_lock(&lock);
+
     if ((index = searchList(centralList, name)) != -1) {
         getNode(centralList, index)->data = data;
     } else{
         printf("Does not exist in LinkedList");
     }
+
+    pthread_mutex_unlock(&lock);
 }
 
 //Removes value from list
 void removeFromLinkedList(char * name) {
+    pthread_mutex_lock(&lock);
     removeNode(centralList, name);
+    pthread_mutex_unlock(&lock);
 }

@@ -6,7 +6,7 @@ void createVariable(char * name, char * data) {
     } else {
         Node node = {name, data, 1};
         addToCache(node);
-        //TODO: Add to LinkedList
+        //TODO: Add to LinkedList  
     }
 }
 

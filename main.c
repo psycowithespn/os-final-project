@@ -1,8 +1,5 @@
 #include "Memory.h"
 
-#define CACHE_DATA_SIZE 256
-#define CACHE_TABLE_SIZE 8
-
 int main() {
     for(int i = 0; i < CACHE_TABLE_SIZE; i++){
         Node cache;
