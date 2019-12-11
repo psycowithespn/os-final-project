@@ -1,16 +1,16 @@
 #include "CRUD.h"
 
 void createVariable(char * name, char * data) {
-
     if (inCache(name) == 1) {
-        printf("Exists in memory");
-    } else {
+        return;
+    }
+
+    if(searchList(centralList, name) == -1) {
         Node node = (Node)malloc(sizeof(Node));
         node->name = name;
         node->data = data;
 
         addToCache(node);
-        printf("Exists in memory");
         addNode(data, name);
     }
 }
