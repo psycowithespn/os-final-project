@@ -1,5 +1,11 @@
 #include "Memory.h"
 
+/*
+Amari Sewell
+Devon Tingley
+Aaron Voies
+*/
+
 int main() {
     for(int i = 0; i < CACHE_TABLE_SIZE; i++){
         Node cache;

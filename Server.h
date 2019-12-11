@@ -16,7 +16,6 @@
 #define RESOURCE_SERVER_PORT 1080
 #define BUF_SIZE 256
 
-// We make this a global so that we can refer to it in our signal handler
 int serverSocket;
 
 void closeConnection();

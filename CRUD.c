@@ -47,11 +47,9 @@ void updateVariable(char * name, char * data) {
 
 void deleteVariable(char * name) {
     if (inCache(name) == 1) {
-        cacheTable[hash(name)]->name = NULL;
-        cacheTable[hash(name)]->data = NULL;
-    } 
-    
-    if(searchList(centralList, name) != -1){
+        cacheTable[hash(name)]->name = "";
+        cacheTable[hash(name)]->data = "";
+    } else if(searchList(centralList, name) != -1){
         removeFromLinkedList(name);
     } else {
         printf("Doesn't exist in memory");
