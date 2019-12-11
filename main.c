@@ -5,14 +5,14 @@ int main() {
         Node cache;
         cache = (Node)malloc(sizeof(Node));
 
-        cache->name = NULL;
-        cache->data = NULL;
+        cache->name = "";
+        cache->data = "";
 
         cacheTable[i] = cache;
     }
 
     pthread_mutex_init(&lock, NULL);
-    centralList = newLinkedList(NULL, "Yay");
+    centralList = newLinkedList("", "");
     startServer();
 
     return EXIT_SUCCESS;

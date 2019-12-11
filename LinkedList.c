@@ -1,10 +1,11 @@
 #include "LinkedList.h"
 
 // Create a new Linked List with Default Values
-LinkedListNode newLinkedList(Node data, char * name) {
+LinkedListNode newLinkedList(char * data, char * name) {
     LinkedListNode node;
     node = (LinkedListNode)malloc(sizeof(LinkedListNode));
 
+    node->name = name;
     node->data = data;
     node->next = NULL;
 
@@ -12,8 +13,14 @@ LinkedListNode newLinkedList(Node data, char * name) {
 }
 
 // Adds a new node with data
-void addNode(Node data, char * name) {
-    LinkedListNode nextNode = newLinkedList(data, name);
+void addNode(char * data, char * name) {
+    char nameCopy[strlen(name)];
+    char dataCopy[strlen(data)];
+
+    strcpy(nameCopy, name);
+    strcpy(dataCopy, data);
+
+    LinkedListNode nextNode = newLinkedList(dataCopy, nameCopy);
     LinkedListNode temp = centralList;
 
     while (temp->next != NULL) {
@@ -39,7 +46,7 @@ int searchList(LinkedListNode head, char * toSearch) {
     LinkedListNode node = head;
     int index = 0;
 
-    while (strcmp(node->data->data, toSearch) != 0) {
+    while (strcmp(node->name, toSearch) != 0) {
         node = node->next;
         index++;
 
@@ -52,37 +59,30 @@ int searchList(LinkedListNode head, char * toSearch) {
 }
 
 // Same but with strings
-LinkedListNode removeNode(LinkedListNode head, char * data) {
+void removeNode(LinkedListNode head, char * data) {
     LinkedListNode previous;
     LinkedListNode node = head;
 
-    while (strcmp(node->data->name, data) != 0) {
+    while (strcmp(node->name, data) != 0) {
         previous = node;
         node = node->next;
 
         if (node == NULL) {
-            return head;
+            break;
         }
-    }
-
-    if (node == head) {
-        node = head;
-        head = head->next;
-        free(node);
-        return head;
     }
 
     previous->next = node->next;
     free(node);
-    return head;
 }
 
 //Search for value in list
-LinkedListNode searchLinkedList(char * name){
+Node searchLinkedList(char * name){
     int index;
     pthread_mutex_lock(&lock);
 
     if ((index = searchList(centralList, name)) != -1){
+        pthread_mutex_unlock(&lock);
         return getNode(centralList, index);
     } else{
         printf("Does not exist in LinkedList");
@@ -94,10 +94,14 @@ LinkedListNode searchLinkedList(char * name){
 //Updates list value
 void updateLinkedList(char * name, char * data){
     int index;
+
+    char dataCopy[strlen(data)];
+    strcpy(dataCopy, data);
+
     pthread_mutex_lock(&lock);
 
     if ((index = searchList(centralList, name)) != -1) {
-        getNode(centralList, index)->data = data;
+        getNode(centralList, index)->data = dataCopy;
     } else{
         printf("Does not exist in LinkedList");
     }

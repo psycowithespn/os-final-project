@@ -29,13 +29,9 @@ void * processClientRequest(void * request) {
     // Read the request that the client has
     while ( (bytesReadFromClient = read(connectionToClient, receiveLine, BUF_SIZE)) > 0) {
         // Put a NULL string terminator at end
-        receiveLine[bytesReadFromClient] = 0;
-
-        // Show what client sent
-        printf("Received: %s\n", receiveLine);
+        receiveLine[bytesReadFromClient - 1] = 0;
 
         // Default success value to 0 (false) in case invalid command is sent and switch statement fails
-        int success = 0;
         char ** parsedString = parse(receiveLine);
         char * command = parsedString[0];
 

@@ -1,11 +1,16 @@
 #include "CRUD.h"
 
 void createVariable(char * name, char * data) {
+
     if (inCache(name) == 1) {
         printf("Exists in memory");
     } else {
-        Node node = {name, data};
+        Node node = (Node)malloc(sizeof(Node));
+        node->name = name;
+        node->data = data;
+
         addToCache(node);
+        printf("Exists in memory");
         addNode(data, name);
     }
 }
@@ -16,7 +21,7 @@ char * readVariable(char * name) {
     } else if(searchList(centralList, name) != -1){
         Node node = searchLinkedList(name);
         addToCache(node);
-        return node;
+        return node->data;
     } else{
         printf("Doesn't exist in memory");
         return NULL;
@@ -25,14 +30,16 @@ char * readVariable(char * name) {
 
 void updateVariable(char * name, char * data) {
     if (inCache(name) == 1) {
-        Node node = {name, data, 1};
+        Node node = (Node)malloc(sizeof(Node));
+
+        node->name = name;
+        node->data = data;
+
         addToCache(node);
-        if (searchList(centralList, name) != -1) {
-            searchLinkedList(name)->data = data;
-        }
-    } else if(searchList(centralList, name) != -1){
-      searchLinkedList(name)->data = data;
-      addToCache(searchLinkedList(name)->data);
+    } 
+    
+    if(searchList(centralList, name) != -1){
+        updateLinkedList(name, data);
     } else {
         printf("Doesn't exist in memory");
     }
@@ -42,8 +49,10 @@ void deleteVariable(char * name) {
     if (inCache(name) == 1) {
         cacheTable[hash(name)]->name = NULL;
         cacheTable[hash(name)]->data = NULL;
-    } else if(searchList(centralList, name) != -1){
-        removeFromLinkedList(searchLinkedList(name)->name);
+    } 
+    
+    if(searchList(centralList, name) != -1){
+        removeFromLinkedList(name);
     } else {
         printf("Doesn't exist in memory");
     }

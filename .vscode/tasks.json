@@ -2,16 +2,15 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "gcc build active file",
-            "command": "/usr/bin/gcc",
+            "label": "Compile - Pthread",
+            "command": "clang",
             "args": [
+                "-pthread",
                 "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "*.c"
             ],
             "options": {
-                "cwd": "/usr/bin"
+                "cwd": "${workspaceFolder}",
             }
         }
     ],
