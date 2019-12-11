@@ -6,7 +6,6 @@ LinkedListNode newLinkedList(Node data, char * name) {
     node = (LinkedListNode)malloc(sizeof(LinkedListNode));
 
     node->data = data;
-    node->name = name;
     node->next = NULL;
 
     return node;
