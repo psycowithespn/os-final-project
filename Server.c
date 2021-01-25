@@ -10,7 +10,7 @@ void closeConnection() {
 char ** parse(char * toParse) {
     char * token;
     int i = 0;
-    char * toReturn[3];
+    char ** toReturn = calloc(sizeof(char *), 3);
 
     while ((token = strsep(&toParse, " ")) != NULL) {
         toReturn[i] = token;
@@ -52,6 +52,8 @@ void * processClientRequest(void * request) {
         } else if (strcmp(command, "delete") == 0) {
             deleteVariable(parsedString[1]);
         }
+
+        free(parsedString);
         
         // Zero out the receive line so we do not get artifacts from before
         bzero(&receiveLine, sizeof(receiveLine));
